@@ -6,35 +6,44 @@ import xml.etree.ElementTree as ET
 from greenbutton_objects import resources
 from greenbutton_objects import utils
 
+
 def parse_feed(filename):
     tree = ET.parse(filename)
 
     usagePoints = []
-    for entry in tree.getroot().findall('atom:entry/atom:content/espi:UsagePoint/../..', utils.ns):
+    for entry in tree.getroot().findall(
+        "atom:entry/atom:content/espi:UsagePoint/../..", utils.ns
+    ):
         up = resources.UsagePoint(entry)
         usagePoints.append(up)
-    
-    meterReadings = []    
-    for entry in tree.getroot().findall('atom:entry/atom:content/espi:MeterReading/../..', utils.ns):
+
+    meterReadings = []
+    for entry in tree.getroot().findall(
+        "atom:entry/atom:content/espi:MeterReading/../..", utils.ns
+    ):
         mr = resources.MeterReading(entry, usagePoints=usagePoints)
         meterReadings.append(mr)
 
     readingTypes = []
-    for entry in tree.getroot().findall('atom:entry/atom:content/espi:ReadingType/../..', utils.ns):
+    for entry in tree.getroot().findall(
+        "atom:entry/atom:content/espi:ReadingType/../..", utils.ns
+    ):
         rt = resources.ReadingType(entry, meterReadings=meterReadings)
         readingTypes.append(rt)
 
     intervalBlocks = []
-    for entry in tree.getroot().findall('atom:entry/atom:content/espi:IntervalBlock/../..', utils.ns):
+    for entry in tree.getroot().findall(
+        "atom:entry/atom:content/espi:IntervalBlock/../..", utils.ns
+    ):
         ib = resources.IntervalBlock(entry, meterReadings=meterReadings)
         intervalBlocks.append(ib)
-    
+
     return usagePoints
 
 
 def parse_feed_representation(usage_points) -> str:
     """
-    Return a string representation of the parsing result.
+    Return a string representation of the test_parse result.
 
     The representation includes the Usage Points, Meter Readings, and
     Interval Readings.
