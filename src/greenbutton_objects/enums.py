@@ -3,6 +3,7 @@
 
 from enum import Enum
 
+
 class AccumulationBehaviourType(Enum):
     notApplicable = 0
     bulkQuantity = 1
@@ -11,7 +12,8 @@ class AccumulationBehaviourType(Enum):
     indicating = 6
     summation = 9
     instantaneous = 12
-    
+
+
 class CommodityType(Enum):
     notApplicable = 0
     electricity = 1
@@ -23,7 +25,8 @@ class CommodityType(Enum):
     wastewater = 11
     heatingFluid = 12
     coolingFluid = 13
-        
+
+
 class ConsumptionTierType(Enum):
     notApplicable = 0
     blockTier1 = 1
@@ -42,7 +45,8 @@ class ConsumptionTierType(Enum):
     blockTier14 = 14
     blockTier15 = 15
     blockTier16 = 16
-        
+
+
 class CurrencyCode(Enum):
     na = 0
     aus = 36
@@ -53,24 +57,27 @@ class CurrencyCode(Enum):
     @property
     def symbol(self):
         if self in [CurrencyCode.aus, CurrencyCode.cad, CurrencyCode.usd]:
-            return '$'
+            return "$"
         elif self is CurrencyCode.eur:
-            return '€'
+            return "€"
         else:
-            return '¤'
-        
+            return "¤"
+
+
 class DataQualifierType(Enum):
     notApplicable = 0
     average = 2
     maximum = 8
     minimum = 9
     normal = 12
-        
+
+
 class FlowDirectionType(Enum):
     notApplicable = 0
     forward = 1
     reverse = 19
-        
+
+
 class KindType(Enum):
     notApplicable = 0
     currency = 3
@@ -87,7 +94,8 @@ class KindType(Enum):
     voltageAngle = 55
     distortionPowerFactor = 64
     volumetricFlow = 155
-        
+
+
 class PhaseCode(Enum):
     notApplicable = 0
     c = 32
@@ -104,7 +112,8 @@ class PhaseCode(Enum):
     s1n = 513
     s1s2 = 768
     s1s2n = 769
-        
+
+
 class QualityOfReading(Enum):
     valid = 0
     manuallyEdited = 7
@@ -119,7 +128,8 @@ class QualityOfReading(Enum):
     other = 16
     validated = 17
     verified = 18
-        
+
+
 class ServiceKind(Enum):
     electricity = 0
     naturalGas = 1
@@ -129,6 +139,7 @@ class ServiceKind(Enum):
     cold = 6
     communication = 7
     time = 8
+
 
 class TimeAttributeType(Enum):
     notApplicable = 0
@@ -144,6 +155,7 @@ class TimeAttributeType(Enum):
     weekly = 24
     forTheSpecifiedPeriod = 32
     daily30MinuteFixedBlock = 79
+
 
 class UomType(Enum):
     notApplicable = 0
@@ -177,35 +189,36 @@ class UomType(Enum):
     absolutePascals = 155
     therms = 169
 
+
 UOM_SYMBOLS = {
-    UomType.notApplicable: '',
-    UomType.amps: 'A',
-    UomType.volts: 'V',
-    UomType.joules: 'J',
-    UomType.hertz: 'Hz',
-    UomType.watts: 'W',
-    UomType.cubicMeters: 'm³',
-    UomType.voltAmps: 'VA',
-    UomType.voltAmpsReactive: 'VAr',
-    UomType.cosine: 'cos',
-    UomType.voltsSquared: 'V²',
-    UomType.ampsSquared: 'A²',
-    UomType.voltAmpHours: 'VAh',
-    UomType.wattHours: 'Wh',
-    UomType.voltAmpReactiveHours: 'VArh',
-    UomType.ampHours: 'Ah',
-    UomType.cubicFeet: 'ft³',
-    UomType.cubicFeetPerHour: 'ft³/h',
-    UomType.cubicMetersPerHour: 'm³/h',
-    UomType.usGallons: 'US gal',
-    UomType.usGallonsPerHour: 'US gal/h',
-    UomType.imperialGallons: 'IMP gal',
-    UomType.imperialGallonsPerHour: 'IMP gal/h',
-    UomType.britishThermalUnits: 'BTU',
-    UomType.britishThermalUnitsPerHour: 'BTU/h',
-    UomType.liters: 'L',
-    UomType.litersPerHour: 'L/h',
-    UomType.gaugePascals: 'Pag',
-    UomType.absolutePascals: 'Pa',
-    UomType.therms: 'thm',
+    UomType.notApplicable: "",
+    UomType.amps: "A",
+    UomType.volts: "V",
+    UomType.joules: "J",
+    UomType.hertz: "Hz",
+    UomType.watts: "W",
+    UomType.cubicMeters: "m³",
+    UomType.voltAmps: "VA",
+    UomType.voltAmpsReactive: "VAr",
+    UomType.cosine: "cos",
+    UomType.voltsSquared: "V²",
+    UomType.ampsSquared: "A²",
+    UomType.voltAmpHours: "VAh",
+    UomType.wattHours: "Wh",
+    UomType.voltAmpReactiveHours: "VArh",
+    UomType.ampHours: "Ah",
+    UomType.cubicFeet: "ft³",
+    UomType.cubicFeetPerHour: "ft³/h",
+    UomType.cubicMetersPerHour: "m³/h",
+    UomType.usGallons: "US gal",
+    UomType.usGallonsPerHour: "US gal/h",
+    UomType.imperialGallons: "IMP gal",
+    UomType.imperialGallonsPerHour: "IMP gal/h",
+    UomType.britishThermalUnits: "BTU",
+    UomType.britishThermalUnitsPerHour: "BTU/h",
+    UomType.liters: "L",
+    UomType.litersPerHour: "L/h",
+    UomType.gaugePascals: "Pag",
+    UomType.absolutePascals: "Pa",
+    UomType.therms: "thm",
 }
