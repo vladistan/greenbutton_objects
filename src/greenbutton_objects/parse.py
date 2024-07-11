@@ -43,7 +43,7 @@ def parse_feed(filename):
 
 def parse_feed_representation(usage_points) -> str:
     """
-    Return a string representation of the parsing result.
+    Return a string representation of the test_parse result.
 
     The representation includes the Usage Points, Meter Readings, and
     Interval Readings.

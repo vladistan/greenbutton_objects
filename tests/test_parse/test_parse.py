@@ -24,9 +24,9 @@ def _save_representation(test_xml_path: Path, test_output_path: Path) -> None:
 
 def save_expected_results():
     """
-    Save the expected results of parsing each XML file of test data.
+    Save the expected results of test_parse each XML file of test data.
 
-    Should be run only to update the expected results of parsing XML
+    Should be run only to update the expected results of test_parse XML
     data or representing parsed data.
     """
     data_path = _ROOT_DIR / "data"
@@ -46,7 +46,7 @@ def save_expected_results():
 
 def test_parse_feed():
     """
-    Verify that parsing an XML file works as intended.
+    Verify that test_parse an XML file works as intended.
 
     Compares the string form of a parsed XML to a saved text file.
     """
@@ -64,7 +64,7 @@ def test_parse_feed():
             with open(expected_results_file) as f:
                 assert f.read() == parsed_feed_representation
 
-    # verify("electricity")
+    verify("electricity")
     verify("natural_gas")
 
 
