@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 ns = {"atom": "http://www.w3.org/2005/Atom", "espi": "http://naesb.org/espi"}
 
 

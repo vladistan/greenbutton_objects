@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import bisect
 import functools
 
