@@ -79,32 +79,23 @@ preview = true # https://docs.astral.sh/ruff/preview/
 
 [tool.ruff.lint]
 select = [
+  # docstrings
+  # "D", <-- TODO: There are no docstrings in this project
   # pycodestyle
   "E",
   "W",
   # Pyflakes
   "F",
   # pep8-naming
-  "N",
+  # "N",   <-- TODO: This project not PEP8 Naming compliant yet
   # pyupgrade
-  "UP",
+  # "UP", <-- TODO: This project uses outdated string formating
   # flake8-bugbear
-  "B",
+  # "B",  <-- TODO: There are potential bugs in this project
   # flake8-simplify
   "SIM",
   # isort
-  "I",
-  # docstrings
-  "D101",
-  "D102",
-  "D103",
-  "D106",
-  "D206",
-  "D207",
-  "D208",
-  "D300",
-  "D417",
-  "D419"
+  "I"
 ]
 ignore = [
   "UP006", # Allow non standard library generics in type hints
