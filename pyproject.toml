@@ -1,5 +1,8 @@
 [build-system]
-requires = ["setuptools>=61.0.0", "wheel"]
+requires = [
+  "setuptools>=61",
+  "wheel"
+]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -14,7 +17,10 @@ authors = [
 ]
 license = {file = "LICENSE"}
 classifiers = [
+  "Development Status :: 4 - Beta",
   "License :: OSI Approved :: Apache Software License",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3"
 ]
@@ -25,15 +31,21 @@ requires-python = ">=2.7"
 dev = [
   "black",
   "bumpver",
-  "isort",
   "mypy",
   "pip-tools",
   "pydocstyle",
-  "pytest"
+  "pytest",
+  "pytest-cov",
+  "ruff"
 ]
 
 [project.urls]
-Homepage = "https://github.com/codeforboston/greenbutton_objects"
+"Homepage" = "https://github.com/codeforboston/greenbutton_objects"
+"Source Code" = "https://github.com/codeforboston/greenbutton_objects"
+
+[tool.black]
+line-length = 110
+target-version = ["py38"]
 
 [tool.bumpver]
 current_version = "2024.7.11"
@@ -55,3 +67,61 @@ push = true
   "{version}",
   "{pep440_version}"
 ]
+
+[tool.isort]
+profile = "black"
+line_length = 110
+
+[tool.ruff]
+line-length = 110
+target-version = "py38"
+preview = true # https://docs.astral.sh/ruff/preview/
+
+[tool.ruff.lint]
+select = [
+  # pycodestyle
+  "E",
+  "W",
+  # Pyflakes
+  "F",
+  # pep8-naming
+  "N",
+  # pyupgrade
+  "UP",
+  # flake8-bugbear
+  "B",
+  # flake8-simplify
+  "SIM",
+  # isort
+  "I",
+  # docstrings
+  "D101",
+  "D102",
+  "D103",
+  "D106",
+  "D206",
+  "D207",
+  "D208",
+  "D300",
+  "D417",
+  "D419"
+]
+ignore = [
+  "UP006", # Allow non standard library generics in type hints
+  "UP007", # Allow Union in type hints
+  "SIM114", # Allow if with same arms
+  "B028", # Allow default warning level
+  "SIM117", # Allow nested with
+  "UP015", # Allow redundant open parameters
+  "UP028" # Allow yield in for loop
+]
+
+[tool.ruff.lint.extend-per-file-ignores] # https://docs.astral.sh/ruff/settings/#extend-per-file-ignores
+# Ignore missing __init__.py files in tests.
+"tests/*" = ["INP001", "PLR2004"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 100
