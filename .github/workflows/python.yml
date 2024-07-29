@@ -1,0 +1,35 @@
+name: python
+
+on: [push]
+
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        python-version: [ "3.9", "3.10", "3.11", "3.12" ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install Nox
+        run: pip install '.[dev]'
+      - name: Test with Nox
+        run: nox -s tests-${{ matrix.python-version }}
+  types:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+          cache: pip
+      - name: Install Nox and group dependencies
+        run: pip install '.[dev]'
+      - name: Test with Nox
+        run: nox -s mypy-3.12
