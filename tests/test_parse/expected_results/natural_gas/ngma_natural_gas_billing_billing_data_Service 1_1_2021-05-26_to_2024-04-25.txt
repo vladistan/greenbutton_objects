@@ -68,4 +68,3 @@ UsagePoint (1 MAIN ST, ANYTOWN ME 12345) naturalGas None:  Meter Reading (None) 
     2024-02-24 00:00:00+00:00, 31 days, 23:00:00: 133.0 thm($310.4)
 
     2024-03-27 00:00:00+00:00, 30 days, 0:00:00: 91.0 thm($213.14)
-

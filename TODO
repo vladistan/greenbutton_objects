@@ -1,10 +1,9 @@
 
 * Handle IntervalReading blocks without timePeriod entries.
    Synthesize a timePeriod from MeterReading.readingType.intervalLength.
-   
+
 * Handle LocalTimeParameters resources
-   
+
 * Handle ElectricPowerUsageSummary resources
 
 * Handle ElectricPowerQualitySummary resources
-

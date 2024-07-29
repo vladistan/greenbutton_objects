@@ -17518,4 +17518,3 @@ UsagePoint (Inland Single-Family) electricity None:  Meter Reading (Hourly Elect
     2012-01-01 06:00:00+00:00, 1:00:00: 1153 Wh
 
     2012-01-01 07:00:00+00:00, 1:00:00: 1034 Wh
-

@@ -28,3 +28,19 @@ Simple steps for development setup:
 3. `pip install -r requirements-dev.txt` which installs the libraries required to develop greenbutton_objects
 
 Then, you should be able to run `pytest`, also from any directory, and see the test run successfully.
+
+## Pre-commit Checks
+
+This project uses [pre-commit](https://pre-commit.com/) to run various checks and formatters before each commit. To set it up:
+
+1. Install pre-commit in your environment:
+   ```
+   pip install pre-commit
+   ```
+
+2. Install the pre-commit hooks:
+   ```
+   pre-commit install
+   ```
+
+Pre-commit checks will automatically run on every commit.

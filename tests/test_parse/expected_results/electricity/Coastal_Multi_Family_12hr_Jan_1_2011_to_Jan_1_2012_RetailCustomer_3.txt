@@ -17518,4 +17518,3 @@ UsagePoint (Coastal Multi-Family 12hr) electricity None:  Meter Reading (Hourly 
     2012-01-01 06:00:00+00:00, 1:00:00: 559 Wh
 
     2012-01-01 07:00:00+00:00, 1:00:00: 482 Wh
-
