@@ -1,25 +1,16 @@
-black:
-	black --check .
+lint:
+	pre-commit run -a
+	nox -s mypy
 
-isort:
-	isort --check .
-
-pydocstyle:
-	pydocstyle .
-
-lint: black isort pydocstyle
-
-mypy:
-	mypy .
 
 gen_examples:
 	python .\tests\test_rules_engine\generate_example_data.py
 
 test:
-	pytest .
+	nox -s tests-3.12
 
 build:
 	pip install -q build
 	python -m build
 
-all: lint mypy gen_examples test build
+all: lint gen_examples test build
