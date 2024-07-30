@@ -58,9 +58,7 @@ def test_parse_feed():
             parsed_feed = parse.parse_feed(data_path / energy_source / data_file_name)
             parsed_feed_representation = parse.parse_feed_representation(parsed_feed)
             result_file_name = data_file_name.strip("xml") + "txt"
-            expected_results_file = (
-                expected_results_path / energy_source / result_file_name
-            )
+            expected_results_file = expected_results_path / energy_source / result_file_name
             with open(expected_results_file) as f:
                 assert f.read() == parsed_feed_representation
 

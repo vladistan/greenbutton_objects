@@ -1,10 +1,7 @@
-#!/usr/bin/python
-
 import datetime
 import functools
 
-from greenbutton_objects import enums
-from greenbutton_objects import utils
+from greenbutton_objects import enums, utils
 
 
 @functools.total_ordering
@@ -13,9 +10,7 @@ class DateTimeInterval:
         self.start = utils.getEntity(
             entity,
             "espi:start",
-            lambda e: datetime.datetime.fromtimestamp(int(e.text)).astimezone(
-                datetime.timezone.utc
-            ),
+            lambda e: datetime.datetime.fromtimestamp(int(e.text)).astimezone(datetime.timezone.utc),
         )
         self.duration = utils.getEntity(
             entity, "espi:duration", lambda e: datetime.timedelta(seconds=int(e.text))
@@ -39,20 +34,13 @@ class DateTimeInterval:
 class IntervalReading:
     def __init__(self, entity, parent):
         self.intervalBlock = parent
-        self.cost = utils.getEntity(
-            entity, "espi:cost", lambda e: int(e.text) / 100000.0
-        )
-        self.timePeriod = utils.getEntity(
-            entity, "espi:timePeriod", lambda e: DateTimeInterval(e)
-        )
+        self.cost = utils.getEntity(entity, "espi:cost", lambda e: int(e.text) / 100000.0)
+        self.timePeriod = utils.getEntity(entity, "espi:timePeriod", lambda e: DateTimeInterval(e))
         self._value = utils.getEntity(entity, "espi:value", lambda e: int(e.text))
 
-        self.readingQualities = set(
-            [
-                ReadingQuality(rq, self)
-                for rq in entity.findall("espi:ReadingQuality", utils.ns)
-            ]
-        )
+        self.readingQualities = set([
+            ReadingQuality(rq, self) for rq in entity.findall("espi:ReadingQuality", utils.ns)
+        ])
 
     def __repr__(self):
         return "<IntervalReading (%s, %s: %s %s)>" % (
@@ -78,12 +66,9 @@ class IntervalReading:
             self.intervalBlock is not None
             and self.intervalBlock.meterReading is not None
             and self.intervalBlock.meterReading.readingType is not None
-            and self.intervalBlock.meterReading.readingType.powerOfTenMultiplier
-            is not None
+            and self.intervalBlock.meterReading.readingType.powerOfTenMultiplier is not None
         ):
-            multiplier = (
-                10**self.intervalBlock.meterReading.readingType.powerOfTenMultiplier
-            )
+            multiplier = 10**self.intervalBlock.meterReading.readingType.powerOfTenMultiplier
         else:
             multiplier = 1
         return self._value * multiplier
@@ -124,6 +109,4 @@ class IntervalReading:
 class ReadingQuality:
     def __init__(self, entity, parent):
         self.intervalReading = parent
-        self.quality = utils.getEntity(
-            entity, "espi:quality", lambda e: enums.QualityOfReading(int(e.text))
-        )
+        self.quality = utils.getEntity(entity, "espi:quality", lambda e: enums.QualityOfReading(int(e.text)))

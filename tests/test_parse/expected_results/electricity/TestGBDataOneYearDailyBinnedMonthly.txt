@@ -886,4 +886,3 @@ UsagePoint (Green Button Sample Data File) electricity None:  Meter Reading (Mon
     2014-03-19 04:00:00+00:00, 1 day, 0:00:00: 21021 Wh($2.56347)
 
     2014-03-20 04:00:00+00:00, 1 day, 0:00:00: 21021 Wh($2.56347)
-
