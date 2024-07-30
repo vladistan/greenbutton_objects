@@ -25,18 +25,19 @@ classifiers = [
   "Programming Language :: Python :: 3"
 ]
 keywords = ["feed", "reader", "tutorial"]
-requires-python = ">=2.7"
+requires-python = ">=3.9"
 
 [project.optional-dependencies]
 dev = [
-  "black",
-  "bumpver",
-  "mypy",
-  "pip-tools",
-  "pydocstyle",
-  "pytest",
-  "pytest-cov",
-  "ruff"
+  "black==24.4.2",
+  "bumpver==2023.1129",
+  "mypy==1.11.0",
+  "nox==2024.4.15",
+  "pip-tools==7.4.1",
+  "pytest==8.3.2",
+  "pytest-cov==5.0.0",
+  "pytest_sugar==1.0.0",
+  "ruff==0.5.5"
 ]
 
 [project.urls]
@@ -71,6 +72,12 @@ push = true
 [tool.isort]
 profile = "black"
 line_length = 110
+
+[tool.mypy]
+strict = true
+# TODO: Remove this when explicit-override is enabled by default in strict mode
+# https://github.com/python/mypy/issues/17511
+enable_error_code = ["explicit-override"]
 
 [tool.ruff]
 line-length = 110

@@ -24,8 +24,8 @@ Simple steps for development setup:
 1. Clone the git repository.
 3. Navigate to any directory and create a [virtual environment](https://docs.python.org/3/library/venv.html#creating-virtual-environments) and activate it
 4. The following commands can be run from inside the top-level greenbutton_objects folder while the virtual environment is active
-2. `pip install -e .` builds the [python egg](https://stackoverflow.com/questions/2051192/what-is-a-python-egg) for greenbutton_objects and then installs greenbutton_objects
-3. `pip install -r requirements-dev.txt` which installs the libraries required to develop greenbutton_objects
+5. `pip install -e .` installs the greenbutton_objects package into the virtual environment as an editable package. Meaning that any changes you make to the code will be reflected immediately without having to reinstall.
+6. `pip install '.[dev]'` which installs the libraries required to develop greenbutton_objects.  Make sure to include single quotes around `[dev]` they are important.
 
 Then, you should be able to run `pytest`, also from any directory, and see the test run successfully.
 
