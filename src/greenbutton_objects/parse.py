@@ -1,18 +1,30 @@
 #!/usr/bin/python
 
 import sys
-import xml.etree.ElementTree as ET
 
+from xsdata.formats.dataclass.context import XmlContext
+from xsdata.formats.dataclass.parsers import XmlParser
+from xsdata.formats.dataclass.parsers.config import ParserConfig
+
+import greenbutton_objects.data.atom as atom
+import greenbutton_objects.data.espi as espi
 from greenbutton_objects import resources, utils
 
 
 def parse_feed(filename):
-    tree = ET.parse(filename)
+    config = ParserConfig()
+    context = XmlContext(class_type="pydantic")
+    parser = XmlParser(context=context, config=config)
 
-    usagePoints = []
-    for entry in tree.getroot().findall("atom:entry/atom:content/espi:UsagePoint/../..", utils.ns):
-        up = resources.UsagePoint(entry)
-        usagePoints.append(up)
+    data = parser.parse(filename, clazz=atom.Feed)
+
+    usagePoints = [
+        usage_point
+        for entry in data.entry
+        for content in entry.content
+        for usage_point in content.content
+        if isinstance(usage_point, espi.UsagePoint)
+    ]
 
     meterReadings = []
     for entry in tree.getroot().findall("atom:entry/atom:content/espi:MeterReading/../..", utils.ns):
