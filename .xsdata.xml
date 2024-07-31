@@ -2,7 +2,7 @@
 <Config xmlns="http://pypi.org/project/xsdata" version="24.7">
   <Output maxLineLength="110" subscriptableTypes="false" unionType="false">
     <Package>greenbutton_objects.data</Package>
-    <Format repr="true" eq="true" order="true" unsafeHash="false" frozen="false" slots="false" kwOnly="false">dataclasses</Format>
+    <Format repr="true" eq="true" order="true" unsafeHash="false" frozen="true" slots="false" kwOnly="false">dataclasses</Format>
     <Structure>filenames</Structure>
     <DocstringStyle>reStructuredText</DocstringStyle>
     <RelativeImports>false</RelativeImports>
