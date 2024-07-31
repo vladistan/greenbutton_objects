@@ -12,6 +12,10 @@ lint: black isort pydocstyle
 mypy:
 	mypy .
 
+gen_classes:
+	cd src && xsdata generate -o pydantic -p greenbutton_objects.data.espi https://www.naesb.org/espi.xsd
+	cd src && xsdata generate -o pydantic -p greenbutton_objects.data.atom https://greenbuttondata.org/xsd/3_3/atom.xsd
+
 gen_examples:
 	python .\tests\test_rules_engine\generate_example_data.py
 
