@@ -14,6 +14,14 @@
   },
   "customizations": {
     "codespaces": {
+      "repositories": {
+        "vladistan/home-energy-analysis-tool": {
+          "contents": "write",
+          "checks": "read",
+          "pull_requests": "write",
+          "statuses": "read"
+        }
+      },
       "openFiles": [
         "README.md"
       ],
@@ -42,5 +50,5 @@
       }
     }
   },
- "postStartCommand": ".devcontainer/plain/post_start.sh"
+ "postStartCommand": ".devcontainer/with_energy_app/post_start.sh"
 }
