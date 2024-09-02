@@ -40,6 +40,7 @@ repos:
     rev: v1.0.0
     hooks:
       - id: format-xmllint
+        exclude: .run/
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
