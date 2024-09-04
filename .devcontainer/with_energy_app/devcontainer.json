@@ -16,7 +16,10 @@
     "codespaces": {
       "openFiles": [
         "README.md"
-      ]
+      ],
+      "repositories": {
+        "vladistan/home-energy-analysis-tool": { "permissions": "write-all" }
+      }
     },
     "vscode": {
       "extensions": [
