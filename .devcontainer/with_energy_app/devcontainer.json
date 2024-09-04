@@ -42,5 +42,5 @@
       }
     }
   },
- "postStartCommand": ".devcontainer/with_energy_app/post_start.sh"
+ "postStartCommand": ".devcontainer/with_energy_app/env_setup.sh"
 }
