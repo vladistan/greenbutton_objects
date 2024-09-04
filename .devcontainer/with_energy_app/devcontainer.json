@@ -15,19 +15,11 @@
   "customizations": {
     "codespaces": {
       "repositories": {
-        "vladistan/home-energy-analysis-tool": {
-          "contents": "write",
-          "checks": "read",
-          "pull_requests": "write",
-          "statuses": "read"
-        }
+        "vladistan/home-energy-analysis-tool": { "permissions": "write-all" }
       },
       "openFiles": [
         "README.md"
-      ],
-      "repositories": {
-        "vladistan/home-energy-analysis-tool": { "permissions": "write-all" }
-      }
+      ]
     },
     "vscode": {
       "extensions": [
