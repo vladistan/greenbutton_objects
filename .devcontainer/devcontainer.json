@@ -19,11 +19,7 @@
     }
   },
   "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "CODESPACES.md"
-      ]
-    },
+    "codespaces": { "openFiles": ["CODESPACES.md"] },
     "vscode": {
       "extensions": [
         "ms-python.python@2024.1.10401008",
@@ -38,11 +34,7 @@
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh",
-        "terminal.integrated.profiles.linux": {
-          "zsh": {
-            "path": "/usr/bin/zsh"
-          }
-        }
+        "terminal.integrated.profiles.linux": { "zsh": { "path": "/usr/bin/zsh" } }
       }
     }
   },
