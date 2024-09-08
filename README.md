@@ -1,6 +1,6 @@
 # Green Button Objects
 
-﻿﻿[![codecov](https://codecov.io/gh/codeforboston/greenbutton_objects/graph/badge.svg?token=8P2NMOUWDO)](https://codecov.io/gh/codeforboston/greenbutton_objects)
+[![codecov](https://codecov.io/gh/codeforboston/greenbutton_objects/graph/badge.svg?token=8P2NMOUWDO)](https://codecov.io/gh/codeforboston/greenbutton_objects)
 
 This Python code parses an Energy Service Provider Interface
 (ESPI), or "Green Button", XML file into Python objects.
