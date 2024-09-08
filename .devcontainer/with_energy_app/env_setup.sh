@@ -13,6 +13,11 @@ fi
 # Set up the environment for the home energy app
 cd ../home-energy-analysis-tool/rules-engine
 
+if [ "$(git rev-parse --abbrev-ref HEAD)" != "multi-repo-container" ]; then
+  git fetch --all
+  git checkout multi-repo-container
+fi
+
 # NOTE: It's very important that the home energy app requirements are installed
 # first before installing the requirements for the greenbutton library.
 # Otherwise edit to greenbutton library will not be reflected in the app
