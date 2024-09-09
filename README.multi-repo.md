@@ -1,37 +1,74 @@
 # How to use multi-repo dev container setup
 
-1. Make sure you have forks of both greenbutton and home-energy-analysis-tool in your github account.
+1. Fork both greenbutton and home-energy-analysis-tool.
    - [Fork greenbutton](https://github.com/codeforboston/greenbutton_objects/fork)
    - [Fork home-energy-analysis-tool](https://github.com/codeforboston/home-energy-analysis-tool/fork)
 
 
-2. Make sure multi-repo branch is in your forked repo. Do this on your local machine.
-   Make sure to replace `YOUR_GITHUB_USERNAME` with your actual github username.
+2. To bring the multi-repo branch into the local copy your forked repo.
+3.  Make sure to replace `YOUR_GITHUB_USERNAME` with your actual github username.
 
+Set an environment variable containing your GitHub user name.
 ```
   GITHUB_USERNAME=YOUR_GITHUB_USERNAME
+```
+Create a temporary working directory to contain the files you will need to create.
+```
   mkdir multi-repo
+```
+The following script will copy a branch from Vlad's repository to your fork of `greenbutton_objects`.  Copy and paste the whole thing and hit enter to run.
+```
+  # Go into the temporary working directory
   cd multi-repo
 
+  # Clone the greenbutton_objects git repository into a new sub-directory
   git clone "git@github.com:${GITHUB_USERNAME}/greenbutton_objects.git"
+
+  # Go into the cloned repository directory
   cd greenbutton_objects
+
+  # Add a link to Vlad's fork of the repository 
   git remote add vlad "https://github.com/vladistan/greenbutton_objects.git"
-  git fetch --all
-  git checkout multi-repo-container
-  git push origin multi-repo-container
-  cd ..
 
-  git clone git@github.com:${GITHUB_USERNAME}/home-energy-analysis-tool.git
-  cd home-energy-analysis-tool
-  git remote add vlad "https://github.com/vladistan/home-energy-analysis-tool.git"
+  # Fetch all the branches from all remote links in your repository
   git fetch --all
-  git checkout multi-repo-container
-  git push origin multi-repo-container
-  cd ..
 
+  # Check out the multi-repo-container branch
+  git checkout multi-repo-container
+
+  # Push the branch to your fork
+  git push origin multi-repo-container
+
+  # Hop back
   cd ..
 ```
+This next script will copy a branch from Vlad's repository to your fork of `home-energy-analysis-tool`.  Again, copy and paste the whole thing and hit enter to run.
+```
+  # Clone the home-energy-analysis-tool into a new sub-directory
+  git clone git@github.com:${GITHUB_USERNAME}/home-energy-analysis-tool.git
 
+  # Go into the cloned repository directory
+  cd home-energy-analysis-tool
+
+  # Add a link to Vlad's fork of the repository 
+  git remote add vlad "https://github.com/vladistan/home-energy-analysis-tool.git"
+
+  # Fetch all the branches from all remote links in your repository
+  git fetch --all
+
+  # Checks out the multi-repo-container branch again
+  git checkout multi-repo-container
+
+  # Push the other the repository, home-energy-analysis-tool, to the multi-repo-container branch
+  # hence the name multi-repo-container
+  git push origin multi-repo-container
+
+  # Leave the repository sub-directory
+  cd ..
+
+  # Leave the temporary working directory, which you can now delete
+  cd ..
+```
 
 3. Start Github codespace with options make sure to select correct branch `multi-repo-container` and correct configuration 'With Home Energy App' as shown below:
 
