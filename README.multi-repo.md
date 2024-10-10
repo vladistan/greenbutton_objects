@@ -88,3 +88,42 @@ Running postStartCommand
 
    ![Extensions loading](images/vscode_extension_attention_needed.png)
    ![Extensions wait](images/vscode_extension_wait.png)
+
+# How to reset the branches to Vlad's latest
+
+NOTE: This will overwrite any changes you have in your multi-repo-container branch. If you have made
+local changes and did not push them anywhere you will lose them.  To save them create new local branches in green button and home energy analysis tool repos.
+Use the commainds below to save your changes, make sure you have all local changes committed before you do this:
+
+```
+git checkout multi-repo-container
+git checkout -b multi-repo-container-backup
+```
+
+Now use the commands below to reset your branches to Vlad's latest, do it in greenbutton repo first:
+
+```
+git remote rm vlad || true
+git checkout main
+git remote add vlad "https://github.com/vladistan/greenbutton_objects.git"
+git branch -D multi-repo-container || true
+git fetch --all
+git checkout -b multi-repo-container
+git reset --hard vlad/multi-repo-container
+git branch --set-upstream-to=origin/multi-repo-container
+git push --force origin multi-repo-container
+```
+
+Then do it in home-energy-analysis-tool repo:
+
+```
+git remote rm vlad || true
+git checkout main
+git remote add vlad "https://github.com/vladistan/home-energy-analysis-tool.git"
+git branch -D multi-repo-container || true
+git fetch --all
+git checkout -b multi-repo-container
+git reset --hard vlad/multi-repo-container
+git branch --set-upstream-to=origin/multi-repo-container
+git push --force origin multi-repo-container
+```
